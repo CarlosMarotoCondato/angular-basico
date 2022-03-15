@@ -1,0 +1,46 @@
+
+    <mat-label>Nombre</mat-label>
+    <br>
+    <input matInput [(ngModel)]="nombre" [value]="defaultName">
+
+  <br>
+  <br>  
+
+    <mat-label>E-mail</mat-label>
+    <br>
+    <input matInput [(ngModel)]="email">
+
+  <br>
+
+    <button (click)="enviaFormulario()">Enviar</button>
+    <br>
+    <button (click)="defaultForm()">Default</button>
+  
+<hr>
+
+<p>{{ status }}</p>
+
+<div *ngIf="displayPassword; then showPassword; else hidePassword">
+
+</div>
+
+<ng-template #showPassword>
+  <p>123456789</p>
+</ng-template>
+
+<ng-template #hidePassword>
+  <p>No se muestra el password</p>
+</ng-template>
+
+<div [ngSwitch]="lightStatus">
+  <div *ngSwitchCase = "'RED'">Rojo</div>
+  <div *ngSwitchCase = "'GREEN'">Verde</div>
+  <div *ngSwitchCase = "'YELLOW'">Amarillo</div>
+  <div *ngSwitchDefault>Roto</div>
+</div>
+
+<div *ngFor="let nombre of names">
+  <p>{{nombre}}</p>
+</div>
+
+<div>{{messageFromParent}}</div>
