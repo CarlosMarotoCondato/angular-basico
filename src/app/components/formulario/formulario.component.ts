@@ -24,11 +24,14 @@ export class FormularioComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.courses = this.courseService.getCourses();
-    console.log(this.courses);
+    // this.courses = this.courseService.getCourses();
+    // console.log(this.courses);
+
+    this.courseService.getCourses().subscribe(data=>this.courses=data)
   }
 
   enviaFormulario(){
+    console.log(this.courses)
     console.log(this.email);
     console.log(this.nombre);
 

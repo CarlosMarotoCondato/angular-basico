@@ -1,17 +1,21 @@
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { iCourse } from './course';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CourseServiceService {
 
-  constructor() { }
+  url : string = "assets/data/course.json"
 
-  getCourses(){
-    return[
-      {'id':1, 'name':'MEAN', 'time':'10'},
-      {'id':2, 'name':'Angular', 'time':'19'},
-      {'id':3, 'name':'Java', 'time':'1'},
-    ]
+  constructor(private http: HttpClient) { }
+
+  getCourses(): Observable<iCourse[]>{
+
+    return this.http.get<iCourse[]>(this.url)
+
   };
 }

@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { FormularioComponent } from './components/formulario/formulario.component';
 import { CourseServiceService } from './services/course-service.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { CourseServiceService } from './services/course-service.service';
     BrowserAnimationsModule,
     MatFormFieldModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    HttpClientModule
   ],
   providers: [CourseServiceService],
   bootstrap: [AppComponent]
