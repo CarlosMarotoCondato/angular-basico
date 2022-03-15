@@ -19,6 +19,7 @@ export class FormularioComponent implements OnInit {
   nombre:string;
 
   courses = [];
+  errorMessage = "";
 
   constructor(private courseService : CourseServiceService) { }
 
@@ -27,7 +28,8 @@ export class FormularioComponent implements OnInit {
     // this.courses = this.courseService.getCourses();
     // console.log(this.courses);
 
-    this.courseService.getCourses().subscribe(data=>this.courses=data)
+    this.courseService.getCourses().subscribe(data=>this.courses=data,
+                                                                error => this.errorMessage = error)
   }
 
   enviaFormulario(){
